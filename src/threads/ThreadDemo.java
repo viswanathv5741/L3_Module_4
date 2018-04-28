@@ -20,9 +20,12 @@ public class ThreadDemo {
 			tammy.moveTo(800, 700);
 			sammy.moveTo(1200, 700);
 			
-			Thread r1 = new Thread(()->timmy.move(400));
+			Thread r1 = new Thread(()->{
+			timmy.move(400);
+			}
+			);
 			Thread r2 = new Thread(()->tammy.move(400));
-			Threae r3 = new Thread(()->sammy.move(400));
+			Thread r3 = new Thread(()->sammy.move(400));
 			
 			r1.start();
 			r2.start();
