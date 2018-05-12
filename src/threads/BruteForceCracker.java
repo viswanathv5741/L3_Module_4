@@ -23,6 +23,38 @@ public class BruteForceCracker {
 		int ctr = 0;
 		while(!checkCode(ctr++));
 		
+		Thread r1 = new Thread(
+				new Runnable() {
+					public void run() {
+						int x = 0;
+						while (!checkCode(x++));
+					}
+				});
+		
+		Thread r2 = new Thread(
+				new Runnable() {
+					public void run() {
+						int x = 250000000;
+						while (!checkCode(x++));
+					}
+				});
+		
+		Thread r3 = new Thread(
+				new Runnable() {
+					public void run() {
+						int x = 500000000;
+						while (!checkCode(x++));
+					}
+				});
+		
+		Thread r4 = new Thread(
+				new Runnable() {
+					public void run() {
+						int x=750000000;
+						while (!checkCode(x++));
+					}
+				});
+		
 		endTime = System.currentTimeMillis();
 		elapsedTime = (float)(endTime - startTime);
 		elapsedTime /= 1000.f;
